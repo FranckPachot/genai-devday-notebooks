@@ -1,12 +1,22 @@
 {
     "image": "mcr.microsoft.com/devcontainers/universal:2",
-    "hostRequirements": {"cpus": 4},
+    "hostRequirements": {
+        "cpus": 4
+    },
     "containerEnv": {
         "SERVERLESS_URL": "https://vtqjvgchmwcjwsrela2oyhlegu0hwqnw.lambda-url.us-west-2.on.aws/"
     },
     "updateContentCommand": "python3 -m pip install -r requirements.txt",
+    "postCreateCommand": "wget -q https://fastdl.mongodb.org/mongocli/mongodb-atlas-cli_1.41.1_linux_x86_64.deb -O /tmp/mongodb-atlas-cli.deb && sudo apt-get install -y /tmp/mongodb-atlas-cli.deb && rm /tmp/mongodb-atlas-cli.deb && atlas deployments setup --type local --force --port 27017",
     "customizations": {
-        "codespaces": {"openFiles": []},
-        "vscode": {"extensions": ["ms-toolsai.jupyter", "ms-python.python"]},
-    },
+        "codespaces": {
+            "openFiles": []
+        },
+        "vscode": {
+            "extensions": [
+                "ms-toolsai.jupyter",
+                "ms-python.python"
+            ]
+        }
+    }
 }
