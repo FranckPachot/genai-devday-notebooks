@@ -1,6 +1,7 @@
 tasks:
   - name: Setup and Run MongoDB Atlas CLI
     init: |
+      echo "export SERVERLESS_URL=https://vtqjvgchmwcjwsrela2oyhlegu0hwqnw.lambda-url.us-west-2.on.aws/" >> /home/gitpod/.bashrc
       sudo apt-get update
       sudo apt-get install -y wget python3 python3-pip
       wget -c https://fastdl.mongodb.org/mongocli/mongodb-atlas-cli_1.41.1_linux_$(uname -m).deb -O /var/tmp/mongodb-atlas-cli.deb
