@@ -1,0 +1,9 @@
+tasks:
+  - name: Setup and Run MongoDB Atlas CLI
+    init: |
+      sudo apt-get update
+      sudo apt-get install -y wget
+      wget -c https://fastdl.mongodb.org/mongocli/mongodb-atlas-cli_1.41.0_linux_$(uname -m).deb -O /var/tmp/mongodb-atlas-cli.deb
+      sudo apt-get install -y /var/tmp/mongodb-atlas-cli.deb && rm /var/tmp/mongodb-atlas-cli.deb
+    command: |
+      atlas deployments setup --type local --force --port 27017
